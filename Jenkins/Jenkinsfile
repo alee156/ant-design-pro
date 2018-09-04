@@ -1,3 +1,5 @@
+properties([pipelineTriggers([githubPush()])])
+
 pipeline {
     agent {
         docker {
@@ -10,6 +12,9 @@ pipeline {
       CI = 'true'
     }
     stages {
+        stage ('Checkout'){
+            git branch: 'master', url: 'https://github.com/alee156/ant-design-pro'
+        }
         stage('Build') { 
             steps {
                 sh 'npm install' 
