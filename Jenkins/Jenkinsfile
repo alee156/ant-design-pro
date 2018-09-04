@@ -13,7 +13,9 @@ pipeline {
     }
     stages {
         stage ('Checkout'){
-            git branch: 'master', url: 'https://github.com/alee156/ant-design-pro'
+            steps {
+                git branch: 'master', url: 'https://github.com/alee156/ant-design-pro'
+            }
         }
         stage('Build') { 
             steps {
