@@ -18,11 +18,10 @@ pipeline {
             }
         }
         stage('Build') {
-            environment {
-              HOME="." 
-            }
             steps {
-                sh 'npm cache verify'
+                environment {
+                  HOME="." 
+                }
                 sh 'npm install' 
             }
         }
