@@ -17,7 +17,10 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/alee156/ant-design-pro'
             }
         }
-        stage('Build') { 
+        stage('Build') {
+            environment {
+              HOME="." 
+            }
             steps {
                 sh 'npm install' 
             }
